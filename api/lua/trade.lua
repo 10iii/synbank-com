@@ -32,7 +32,7 @@ else
 	return
 end
 
-local res, err = red:zrevrange(the_key, 0, 19)
+local res, err = red:zrevrange(the_key, 0, 199)
 if not res then
 	local resp = {api = "error",desc = "failed to get the key",body = err}
 	ngx.say(cjson.encode(resp))

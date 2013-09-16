@@ -1,6 +1,7 @@
 var io = require('socket.io-client');
 var socket = io.connect('https://socketio.mtgox.com/mtgox?Currency=USD');
 socket.on('connect', function() {
+	console.log('connected');
 	//socket.send({
 	//	    "op": "mtgox.subscribe",
 	//	    "type": "ticker"

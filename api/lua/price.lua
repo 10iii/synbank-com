@@ -23,16 +23,16 @@ if not ok then
 end
 
 if ngx.var.cur == 'usd' then
-	the_key = config:get('usd_index_history_key')
+	the_key = config:get('usd_index_current_key')
 elseif ngx.var.cur == 'cny' then
-	the_key = config:get('cny_index_history_key')
+	the_key = config:get('cny_index_current_key')
 else
 	local resp = {api = "error",desc = "illegal currency code"}
 	ngx.say(cjson.encode(resp))
 	return
 end
 
-local res, err = red:zrevrange(the_key, 0, 29)
+local res, err = red:get(the_key)
 if not res then
 	local resp = {api = "error",desc = "failed to get the key",body = err}
 	ngx.say(cjson.encode(resp))
@@ -44,6 +44,6 @@ if res == ngx.null then
 	ngx.say(cjson.encode(resp))
 	return
 end
-local resp = {api = "history",cur = ngx.var.cur,body = res}
+local resp = {api = "price",cur = ngx.var.cur,body = res}
 ngx.say(cjson.encode(resp))
 

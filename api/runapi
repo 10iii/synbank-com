@@ -8,7 +8,7 @@ DAEMON="/usr/local/openresty/nginx/sbin/nginx"
 #CONF="conf/nginx.conf" 
 #PID="logs/nginx.pid" 
 
-ROOTPATH="/www/synbank-com-dev/api" 
+ROOTPATH="/www/synbank-com/api" 
 CONF="$ROOTPATH/conf/nginx.conf"    #"$ROOTPATH/conf/nginx.conf" 
 #DAEMON="/usr/local/sbin/nginx"  #"$ROOTPATH/sbin/nginx" 
 PID="$ROOTPATH/logs/nginx.pid"  #"$ROOTPATH/run/nginx.pid" 
